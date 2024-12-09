@@ -1,15 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>View Tasks</title>
-</head>
-<body>
-    <h1>Task List</h1>
-    <ul>
+{% extends 'base.html' %}
+
+{% block title %}Task List{% endblock %}
+
+{% block content %}
+    <h2>Task List</h2>
+    <ul class="task-list">
         {% for task in tasks %}
-        <li>{{ task.title }}</li>
+            <li>{{ task.title }}</li>
+        {% empty %}
+            <li>No tasks yet!</li>
         {% endfor %}
     </ul>
-    <a href="/add/">Add Task</a>
-</body>
-</html>
+    <a href="/add/" class="btn-link">Add a New Task</a>
+{% endblock %}

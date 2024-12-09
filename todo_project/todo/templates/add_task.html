@@ -1,15 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Add Task</title>
-</head>
-<body>
-    <h1>Add a Task</h1>
-    <form method="post">
+{% extends 'base.html' %}
+
+{% block title %}Add Task{% endblock %}
+
+{% block content %}
+    <form method="post" class="task-form">
         {% csrf_token %}
-        <input type="text" name="title" placeholder="Task title" required>
-        <button type="submit">Add Task</button>
+        <label for="task-title">Task Title:</label>
+        <input type="text" id="task-title" name="title" placeholder="Enter task title" required>
+        <button type="submit" class="btn">Add Task</button>
     </form>
-    <a href="/">View Tasks</a>
-</body>
-</html>
+    <a href="/" class="btn-link">View Task List</a>
+{% endblock %}
